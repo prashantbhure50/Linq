@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,9 +10,12 @@ namespace Linq
 {
     public class Program
     {
+       
         static void Main(string[] args)
         {
             Managment managment = new Managment();
+           
+            
 
             /////////UC1
             List<ProductReview> productReviewsList = new List<ProductReview>()
@@ -38,28 +42,38 @@ namespace Linq
             new ProductReview() { productId = 4, userId = 5, rating = 2, isLike = "No", review = "Okay" },
             new ProductReview() { productId = 5, userId = 1, rating = 5, isLike = "Yes", review = "Awesome" },
             new ProductReview() { productId = 5, userId = 1, rating = 5, isLike = "Yes", review = "Awesome" },
-            new ProductReview() { productId = 5, userId = 1, rating = 5, isLike = "Yes", review = "Awesome" },
-            new ProductReview() { productId = 5, userId = 1, rating = 5, isLike = "Yes", review = "Awesome" },
-            new ProductReview() { productId = 5, userId = 1, rating = 5, isLike = "Yes", review = "Awesome" },
-            new ProductReview() { productId = 9, userId = 1, rating = 5, isLike = "Yes", review = "Does the work" },
+            new ProductReview() { productId = 5, userId = 10, rating = 5, isLike = "Yes", review = "Awesome" },
+            new ProductReview() { productId = 5, userId = 10, rating = 5, isLike = "Yes", review = "Awesome" },
+            new ProductReview() { productId = 5, userId = 10, rating = 5, isLike = "Yes", review = "Awesome" },
+            new ProductReview() { productId = 9, userId = 10, rating = 5, isLike = "Yes", review = "Does the work" },
 
     };
+            Datatable table = new Datatable();
+            table.AddDataTabe(productReviewsList);
+
+            table.DisplayIsLike();
+          //  table.DisplayAllRecordsWhereUserID10();
+            //table.DisplayAllRecordsContainsNice();
+           
 
 
             /////////UC2
-            managment.RetriveTopThreeRecord(productReviewsList);
+            // managment.RetriveTopThreeRecord(productReviewsList);
 
             /////////UC3 
-            managment.RetriveAllRecordRatingGreaterThanThree(productReviewsList);
+            //managment.RetriveAllRecordRatingGreaterThanThree(productReviewsList);
 
             /////////UC4
-            managment.RetriveCounOfReviewForProductId(productReviewsList);
+            //managment.RetriveCounOfReviewForProductId(productReviewsList);
 
             /////////UC5
-            managment.RetriveOnlyProductIdAndRating(productReviewsList);
+            //managment.RetriveOnlyProductIdAndRating(productReviewsList);
 
             /////////UC6
-            managment.SkipTopFiveRecord(productReviewsList);
+            //managment.SkipTopFiveRecord(productReviewsList);
+
+
+
 
             Console.ReadKey();
         }
